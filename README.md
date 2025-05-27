@@ -2,25 +2,17 @@
 
 An AI-powered old-school text adventure RPG game engine, made only in frontend (JS/HTML/CSS).
 
-## Features
+⚠ DISCLAIMER: This is a technical demonstration made to see to what extent the capabilities of a frontend-only application can be used to create an interactive and immersive game experience. It's messy and may break easily if you start tinkering with it. It's also not very polished (a nice way of saying it's full of shitty code), so be warned.
 
-- **Pure Frontend Implementation**: Built with JavaScript, HTML, and CSS
-- **Google Authentication**: Secure user login system using Firebase
-- **Character Creation System**: Basic character creation with name and gender selection (can be expanded to include classes, etc)
-- **Save/Load Functionality**: 
-- **Terminal-Style Interface**:
-- **Audio System** (background music support):
+## Features and tech stack
+
+- **Pure frontend Implementation, no backend required**: Built with JavaScript, HTML, and CSS
+- **AI-Powered Narrative System**: Utilizes the Google Gemini API for AI-driven gameplay
+- **Google Authentication**: Secure user login system using Firebase APIs
+- **Save/Load Functionality**
+- **Terminal-Style retro interface using jQuery Terminal**: (https://terminal.jcubic.pl)
+- **Basic audio system** (background music support)
 - **Responsive Design**:
-
-## Technical Stack
-
-- **Frontend Framework**: jQuery + jQuery.terminal
-- **Authentication**: Firebase Authentication
-- **Analytics**: Firebase Analytics
-- **Data Storage**: Local Storage for session persistence
-- **External APIs**: Google Cloud (Gemini API) for AI interactions
-
-No backend required for this project. Everything is handled in the frontend and runs in the user's browser.
 
 ## Project Structure
 
@@ -38,8 +30,10 @@ No backend required for this project. Everything is handled in the frontend and 
 ### Prerequisites
 
 - Modern web browser
+- A code editor
+- Some basic frontend development knowledge (possibily more than mine)
 - Firebase account for authentication
-- Google Cloud API key (for Gemini AI integration)
+- Google Cloud API key
 
 ### Configuration
 
@@ -66,27 +60,13 @@ git clone https://github.com/yourusername/ultimatum_engine.git
 
 2. Open `index.html` in your web browser or deploy to a web server.
 
-## Usage
-
-1. **Login**: Use the Google authentication to log in
-2. **Character Creation**: Create your character with a name and gender
-3. **Game Commands**:
-   - Type 'start' to begin the adventure
-   - Type 'help' for available commands
-4. **Save/Load**:
-   - Use the SAVE button to export your game progress
-   - Use the LOAD button to import a saved game file
+3. Have fun!
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request and/or using the issue tracker.
 
 ## License
 
 This project is open source and available under the MIT License.
 
-## Support
-
-If you encounter any issues or have questions, please open an issue.
-
-        
