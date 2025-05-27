@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTIMATUM</title>
+
+    <!-- Load CSS first -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet"/>
+
+    <!-- Load libraries in correct order -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <script src="https://unpkg.com/js-polyfills/keyboard.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jcubic/static/js/wcwidth.js"></script>
+
+    <!-- Load local scripts last -->
+    <script type="module" src="firebase.js"></script>
+    <script type="module" src="privacy.js"></script>
+    <script src="terminal-config.js"></script>
+    
+</head>
+
+<body>
+    <!-- Login with Google button as a landing page -->
+    <div class="content full-screen">
+        <div id="loginForm">
+            <button id="googleLoginBtn">
+                ⚔ LOGIN WITH GOOGLE ⚔ 
+            </button>
+        </div>
+
+        <div id="characterForm" style="display: none;">
+            <label for="characterName">CHARACTER NAME:</label>
+            <input type="text" id="characterName" name="characterName" pattern="[A-Za-z]+" required>
+            <label for="characterGender">GENDER:</label>
+            <select id="characterGender" name="characterGender" required>
+                <option value="male">MALE</option>
+                <option value="female">FEMALE</option>
+            </select>
+            <button id="playBtn">⚔ PLAY ⚔</button>
+            <div class="load-game-container">
+                <button id="loadBtn">💾 LOAD 💾</button>
+                <input type="file" id="loadBtn" accept=".ult" style="display: none;">
+            </div>
+        </div>
+
+        <div id="terminal-container" style="display: none;">
+            <button id="muteBtn" class="floating-btn">MUTE</button>
+            <button id="saveBtn" class="floating-btn" style="top: 60px;">SAVE</button>
+            <div id="terminal"></div>
+        </div>
+
+        <audio id="backgroundAudio" src="audio.mp3" loop></audio>
+    </div>
+
+    <footer class="footer">
+        <button id="privacy">PRIVACY</button>
+    </footer>
+
+    <div id="privacyPolicyModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Privacy Policy</h2>
+            <p>Privacy text goes here</p>
+        </div>
+    </div>
+
+    <script>
+        // Character name checks and validation (only accept letters)
+        document.addEventListener('DOMContentLoaded', function() {
+                function getCookie(name) {
+                    const value = `; ${document.cookie}`;
+                    const parts = value.split(`; ${name}=`);
+                    if (parts.length === 2) return parts.pop().split(';').shift();
+                }
+                
+                const characterNameInput = document.getElementById('characterName');
+                characterNameInput.addEventListener('input', function() {
+                    // Remove any non-letter characters
+                    this.value = this.value.replace(/[^A-Za-z]/g, '');
+                });
+                
+                // Additional validation on play button click
+                document.getElementById('playBtn').addEventListener('click', function(e) {
+                    const characterName = document.getElementById('characterName').value;
+                    if (!/^[A-Za-z]+$/.test(characterName)) {
+                        e.preventDefault();
+                        alert('Character name must contain only letters (A-Z, a-z)');
+                        return false;
+                    }
+                }, true);
+            });
+    </script>
+
+</body>
+</html>
